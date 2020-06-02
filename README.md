@@ -9,3 +9,13 @@
 - Seeding data
 - Postman
 - Using git for source control
+
+# Section 3
+- create-react-app by CLI
+- Review the app
+- React Concepts & Typescript
+- React State
+- Fetching data from the API
+- CORS
+- Semantic UI
+
