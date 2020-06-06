@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Threading;
 using System.Threading.Tasks;
 using Application.Activities;
 using Domain;
@@ -20,9 +21,10 @@ namespace API.Controllers
         }
 
         [HttpGet]
-        public async Task<ActionResult<List<Activity>>> List()
+        public async Task<ActionResult<List<Activity>>> List(CancellationToken ct)
         {
-            return await _mediator.Send(new List.Query());
+            // the cancellation token is optional used in here, it will stop api process the request if it is stoped from the user side
+            return await _mediator.Send(new List.Query(), ct);
         }
 
         [HttpGet("{id}")]
