@@ -19,3 +19,12 @@
 - CORS
 - Semantic UI
 
+# Section 4
+- CRUD API action
+- Thin API controller
+- Seeding more data
+- Adding more migrations
+- MediatR
+- The CORS + MediatR Pattern
+
+
