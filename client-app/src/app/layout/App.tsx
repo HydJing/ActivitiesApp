@@ -1,5 +1,5 @@
 import React, { useState, useEffect, Fragment } from 'react';
-import { Header, Icon, List, Container } from 'semantic-ui-react';
+import { Header, Container } from 'semantic-ui-react';
 import axios from 'axios';
 import { IActivity } from '../models/activity';
 import NavBar from '../../features/nav/NavBar';
@@ -20,6 +20,18 @@ const App = () => {
     setEditMode(true);
   };
 
+  const handleCreateActivity = (activity: IActivity) => {
+    setActivities([...activities, activity]);
+    setSelectedActivity(activity);
+    setEditMode(false);
+  }
+
+  const handleEditActivity = (activity: IActivity) => {
+    setActivities([...activities.filter(a => a.id !== activity.id), activity]);
+    setSelectedActivity(activity);
+    setEditMode(false);
+  }
+
   useEffect(() => {
     axios
       .get<IActivity[]>('http://localhost:5000/api/activities')
@@ -39,6 +51,8 @@ const App = () => {
           editMode={editMode}
           setEditMode={setEditMode}
           setSelectedActivity={setSelectedActivity}
+          createActivity={handleCreateActivity}
+          editActivity={handleEditActivity}
         />
       </Container>
     </Fragment>
