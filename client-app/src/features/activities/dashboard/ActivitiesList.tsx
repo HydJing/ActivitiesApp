@@ -13,7 +13,6 @@ const ActivitiesList: React.FC<IProps> = ({
   activities,
   selectActivity,
   setSelectedActivity,
-  setEditMode,
 }) => {
   return (
     <Segment clearing>
@@ -33,7 +32,6 @@ const ActivitiesList: React.FC<IProps> = ({
                 <Button
                   onClick={() => {
                     setSelectedActivity(null);
-                    setEditMode(false);
                     selectActivity(activity.id);
                   }}
                   floated="right"
