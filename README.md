@@ -27,4 +27,9 @@
 - MediatR
 - The CORS + MediatR Pattern
 
-
+# Section 5
+- React UI folder structure
+- Building the CRUD app(ui change only)
+- React Hooks
+- Forms in Reach
+- Sematic UI
