@@ -33,3 +33,7 @@
 - React Hooks
 - Forms in Reach
 - Sematic UI
+
+# Section 6
+- Refactor Axios service as agent.ts service
+- refactoring the client app, added delay and loading for API actions
