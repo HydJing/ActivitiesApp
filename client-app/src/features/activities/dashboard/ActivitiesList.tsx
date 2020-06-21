@@ -6,15 +6,12 @@ import { observer } from 'mobx-react-lite';
 import ActivityStore from '../../../app/stores/activityStore';
 
 interface IProps {
-  setSelectedActivity: (activity: IActivity | null) => void;
-  setEditMode: (editMode: boolean) => void;
   deleteActivity: (e: SyntheticEvent<HTMLButtonElement>, id: string) => void;
   submitting: boolean;
   target: string;
 }
 
 const ActivitiesList: React.FC<IProps> = ({
-  setSelectedActivity,
   deleteActivity,
   submitting,
   target,
@@ -39,10 +36,7 @@ const ActivitiesList: React.FC<IProps> = ({
               </Item.Description>
               <Item.Extra>
                 <Button
-                  onClick={() => {
-                    setSelectedActivity(null);
-                    selectActivity(activity.id);
-                  }}
+                  onClick={() => selectActivity(activity.id)}
                   floated="right"
                   content="View"
                   color="blue"
