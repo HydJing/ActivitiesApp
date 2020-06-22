@@ -37,3 +37,8 @@
 # Section 6
 - Refactor Axios service as agent.ts service
 - refactoring the client app, added delay and loading for API actions
+
+# Section 7
+- introduce mobx
+- react context
+- refactoring code to use mobx store
