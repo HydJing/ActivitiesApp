@@ -8,7 +8,7 @@ configure({ enforceActions: 'always' });
 export class ActivityStore {
   @observable activityRegistry = new Map();
   @observable activities: IActivity[] = [];
-  @observable activity: IActivity | undefined;
+  @observable activity: IActivity | null = null;
   @observable loadingInitial = false;
   @observable editMode = false;
   @observable submitting = false;
@@ -58,6 +58,10 @@ export class ActivityStore {
         console.log(error);
       }
     }
+  }
+
+  @action clearActivity = () => {
+    this.activity = null;
   }
 
   getActivity = (id: string) => {
@@ -123,7 +127,7 @@ export class ActivityStore {
 
   @action openCreateForm = () => {
     this.editMode = true;
-    this.activity = undefined;
+    this.activity = null;
   };
 
   @action openEditForm = (id: string) => {
@@ -132,7 +136,7 @@ export class ActivityStore {
   };
 
   @action cancelSelectedActivity = () => {
-    this.activity = undefined;
+    this.activity = null;
   };
 
   @action cancelFormOpen = () => {
