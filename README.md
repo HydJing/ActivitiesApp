@@ -42,3 +42,8 @@
 - introduce mobx
 - react context
 - refactoring code to use mobx store
+
+# Section 8
+- SPAs and routers, show different pages
+- intro to react router
+- adding more components
