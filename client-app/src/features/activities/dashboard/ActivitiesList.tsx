@@ -1,7 +1,6 @@
 import React, { useContext } from 'react';
 import { Item, Button, Label, Segment } from 'semantic-ui-react';
 import { observer } from 'mobx-react-lite';
-
 import ActivityStore from '../../../app/stores/activityStore';
 import { Link } from 'react-router-dom';
 
@@ -9,7 +8,6 @@ const ActivitiesList: React.FC = ({}) => {
   const activityStore = useContext(ActivityStore);
   const {
     activitiesByDate,
-    selectActivity,
     deleteActivity,
     submitting,
     target,
