@@ -47,3 +47,7 @@
 - SPAs and routers, show different pages
 - intro to react router
 - adding more components
+
+# Section 9
+- Components get styles
+- semantic UI
