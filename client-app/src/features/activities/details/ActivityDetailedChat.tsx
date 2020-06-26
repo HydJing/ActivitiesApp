@@ -1,49 +1,58 @@
 import React, { Fragment } from 'react';
-import { Segment, List, Item, Label, Image } from 'semantic-ui-react';
-import { Link } from 'react-router-dom';
+import { Segment, Header, Form, Button, Comment } from 'semantic-ui-react';
 
 const ActivityDetailedChat = () => {
   return (
     <Fragment>
       <Segment
         textAlign="center"
-        style={{ border: 'none' }}
         attached="top"
-        secondary
         inverted
         color="teal"
+        style={{ border: 'none' }}
       >
-        3 people going
+        <Header>Chat about this event</Header>
       </Segment>
       <Segment attached>
-        <List relaxed divided>
-          <Item style={{ position: 'relative' }}>
-            <Label
-              style={{ position: 'absolute' }}
-              color="orange"
-              ribbon="right"
-            >
-              Hot
-            </Label>
-            <Image size="tiny" src={'/assets/user.png'} />
-            <Item.Content verticalAlign="middle">
-              <Item.Header as="h3">
-                <Link to={`#`}>Bob</Link>
-              </Item.Header>
-              <Item.Extra style={{ color: 'orange' }}>following</Item.Extra>
-            </Item.Content>
-          </Item>
+        <Comment.Group>
+          <Comment>
+            <Comment.Avatar src="/assets/user.png" />
+            <Comment.Content>
+              <Comment.Author as="a">Matt</Comment.Author>
+              <Comment.Metadata>
+                <div>Today at 5:42PM</div>
+              </Comment.Metadata>
+              <Comment.Text>How artistic!</Comment.Text>
+              <Comment.Actions>
+                <Comment.Action>Reply</Comment.Action>
+              </Comment.Actions>
+            </Comment.Content>
+          </Comment>
 
-          <Item style={{ position: 'relative' }}>
-            <Image size="tiny" src={'/assets/user.png'} />
-            <Item.Content verticalAlign="middle">
-              <Item.Header as="h3">
-                <Link to={`#`}>Tom</Link>
-              </Item.Header>
-              <Item.Extra style={{ color: 'orange' }}>following</Item.Extra>
-            </Item.Content>
-          </Item>
-        </List>
+          <Comment>
+            <Comment.Avatar src="/assets/user.png" />
+            <Comment.Content>
+              <Comment.Author as="a">Joe Henderson</Comment.Author>
+              <Comment.Metadata>
+                <div>5 days ago</div>
+              </Comment.Metadata>
+              <Comment.Text>Dude, this is awesome. Thanks so much</Comment.Text>
+              <Comment.Actions>
+                <Comment.Action>Reply</Comment.Action>
+              </Comment.Actions>
+            </Comment.Content>
+          </Comment>
+
+          <Form reply>
+            <Form.TextArea />
+            <Button
+              content="Add Reply"
+              labelPosition="left"
+              icon="edit"
+              primary
+            />
+          </Form>
+        </Comment.Group>
       </Segment>
     </Fragment>
   );
