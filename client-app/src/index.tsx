@@ -6,6 +6,7 @@ import App from './app/layout/App';
 import * as serviceWorker from './serviceWorker';
 import ScrollToTop from './app/layout/ScrollToTop';
 import { Router } from 'react-router-dom';
+import 'react-toastify/dist/ReactToastify.min.css';
 
 export const history = createBrowserHistory();
 
