@@ -51,3 +51,11 @@
 # Section 9
 - Components get styles
 - semantic UI
+
+# Section 10
+- API validation using data attributes
+- API validation using fluent validation
+- Exception and error handling
+- Adding custom middleware
+- Axios interceptor
+- Throwing errors
