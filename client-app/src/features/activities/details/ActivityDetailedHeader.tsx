@@ -49,7 +49,12 @@ const ActivityDetailedHeader: React.FC<{ activity: IActivity }> = ({
       <Segment clearing attached="bottom">
         <Button color="teal">Join Activity</Button>
         <Button>Cancel Attendance</Button>
-        <Button as={Link} to={`/manage/${activity.id}`} color="orange" floated="right">
+        <Button
+          as={Link}
+          to={`/manage/${activity.id}`}
+          color="orange"
+          floated="right"
+        >
           Manage Event
         </Button>
       </Segment>
