@@ -59,3 +59,8 @@
 - Adding custom middleware
 - Axios interceptor
 - Throwing errors
+
+# Section 11
+- Forms
+- React final form
+- validating forms with Revalidate
