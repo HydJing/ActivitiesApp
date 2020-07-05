@@ -97,7 +97,7 @@ export class ActivityStore {
         this.activityRegistry.set(activity.id, activity);
         this.submitting = false;
       });
-      history.push(`/activities/${activity.id}`)
+      history.push(`/activities/${activity.id}`);
     } catch (error) {
       runInAction('creating activity error', () => {
         this.submitting = false;
