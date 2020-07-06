@@ -41,7 +41,7 @@ export class ActivityStore {
     try {
       const activities = await agent.Activities.list();
       runInAction('loading activities', () => {
-        activities.map((activity) => {
+        activities.map(activity => {
           activity.date = new Date(activity.date);
           this.activityRegistry.set(activity.id, activity);
         });
