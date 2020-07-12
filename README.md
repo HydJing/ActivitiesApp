@@ -64,3 +64,8 @@
 - Forms
 - React final form
 - validating forms with Revalidate
+
+# Section 12
+- ASP.NET Core Identity
+- JWT Token authentication
+- Adding Infrastructure project
