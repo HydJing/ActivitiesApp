@@ -16,27 +16,28 @@ import NotFound from './NotFound';
 import { ToastContainer } from 'react-toastify';
 import LoginForm from '../../features/user/LoginForm';
 import { RootStoreContext } from '../stores/rootStore';
-import UserStore from '../stores/userStore';
 import LoadingComponent from './LoadingComponent';
+import ModalContainer from '../common/modal/ModalContainer';
 
 const App: React.FC<RouteComponentProps> = ({ location }) => {
   const rootStore = useContext(RootStoreContext);
-  const {setAppLoaded, token, appLoaded} = rootStore.commonStore;
-  const {getUser} = rootStore.userStore;
+  const { setAppLoaded, token, appLoaded } = rootStore.commonStore;
+  const { getUser } = rootStore.userStore;
 
   useEffect(() => {
     if (token) {
-      getUser().finally(() => setAppLoaded())
+      getUser().finally(() => setAppLoaded());
     } else {
-      setAppLoaded()
+      setAppLoaded();
     }
   }, [getUser, setAppLoaded, token]);
 
-  if (!appLoaded) return <LoadingComponent content='Loading app...'/>
+  if (!appLoaded) return <LoadingComponent content="Loading app..." />;
 
   return (
     <Fragment>
-      <ToastContainer position='bottom-right' />
+      <ModalContainer />
+      <ToastContainer position="bottom-right" />
       <Route exact path="/" component={HomePage} />
       <Route
         path={'/(.+)'}
@@ -56,7 +57,7 @@ const App: React.FC<RouteComponentProps> = ({ location }) => {
                   path={['/createActivity', '/manage/:id']}
                   component={ActivityForm}
                 />
-                <Route path='/login' component={LoginForm} />
+                <Route path="/login" component={LoginForm} />
                 <Route component={NotFound} />
               </Switch>
             </Container>
