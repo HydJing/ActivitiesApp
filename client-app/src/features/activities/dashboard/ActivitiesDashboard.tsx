@@ -14,7 +14,8 @@ const ActivitiesDashboard: React.FC = ({}) => {
     loadActivities();
   }, [loadActivities]);
 
-  if (loadingInitial {
+
+  if (loadingInitial) {
     return <LoadingComponent content="Laoding Content..." />;
   }
   
