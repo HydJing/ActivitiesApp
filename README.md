@@ -69,3 +69,9 @@
 - ASP.NET Core Identity
 - JWT Token authentication
 - Adding Infrastructure project
+
+# Section 13
+- Axios interceptors
+- Adding a Root MobX Store(common store)
+- Submissin errors(modal errors)
+- Modals
