@@ -13,7 +13,7 @@ namespace API.Controllers
     public class ActivitiesController : BaseController
     {
         [HttpGet]
-        public async Task<ActionResult<List<Activity>>> List(CancellationToken ct)
+        public async Task<ActionResult<List<ActivityDto>>> List(CancellationToken ct)
         {
             // the cancellation token is optional used in here, it will stop api process the request if it is stoped from the user side
             return await Mediator.Send(new List.Query(), ct);
@@ -21,7 +21,7 @@ namespace API.Controllers
 
         [HttpGet("{id}")]
         [Authorize]
-        public async Task<ActionResult<Activity>> Details(Guid id)
+        public async Task<ActionResult<ActivityDto>> Details(Guid id)
         {
             return await Mediator.Send(new Details.Query{Id = id});
         } 
