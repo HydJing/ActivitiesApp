@@ -26,9 +26,12 @@ namespace Application.Activities
             public async Task<List<ActivityDto>> Handle(Query request, CancellationToken cancellationToken)
             {
                 // the cancellation token will not be used in this app for now because all data is quite small, but it is good to know how it should work
+                // var activities = await _context.Activities
+                //     .Include(x => x.UserActivities)
+                //     .ThenInclude(x => x.AppUser)
+                //     .ToListAsync();
+
                 var activities = await _context.Activities
-                    .Include(x => x.UserActivities)
-                    .ThenInclude(x => x.AppUser)
                     .ToListAsync();
 
                 return _mapper.Map<List<Activity>, List<ActivityDto>>(activities);
