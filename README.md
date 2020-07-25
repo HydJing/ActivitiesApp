@@ -75,3 +75,9 @@
 - Adding a Root MobX Store(common store)
 - Submissin errors(modal errors)
 - Modals
+
+# Section 14
+- EF Relationships
+- DTOs
+- AutoMapper
+- Eager/ Lazy loading related data
