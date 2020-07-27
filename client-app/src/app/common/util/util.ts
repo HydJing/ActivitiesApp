@@ -1,5 +1,6 @@
-import { IActivity } from '../../models/activity';
+import { IActivity, IAttendee } from '../../models/activity';
 import { IUser } from '../../models/user';
+import { displayName } from 'react-widgets/lib/SelectList';
 
 export const combineDateAndTime = (date: Date, time: Date) => {
   const timeString = time.getHours() + ':' + time.getMinutes() + ':00';
@@ -21,4 +22,13 @@ export const setActivityProps = (activity: IActivity, user: IUser) => {
     (a) => a.username === user.username && a.isHost
   );
   return activity;
+};
+
+export const createAttendee = (user: IUser): IAttendee => {
+  return {
+    displayName: user.displayName,
+    isHost: false,
+    username: user.username,
+    image: user.image!
+  }
 };
