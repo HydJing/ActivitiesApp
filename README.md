@@ -81,3 +81,7 @@
 - DTOs
 - AutoMapper
 - Eager/ Lazy loading related data
+
+# Section 15
+- adding attedances to client side
+- more Typescript interfaces
