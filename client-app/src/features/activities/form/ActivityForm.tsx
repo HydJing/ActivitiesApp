@@ -26,7 +26,7 @@ const validate = combineValidators({
     hasLengthGreaterThan(4)({
       message: 'Description needs to be at least 5 characters',
     })
-  ),
+  )(),
   category: isRequired('Category'),
   date: isRequired('Date'),
   time: isRequired('Time'),
