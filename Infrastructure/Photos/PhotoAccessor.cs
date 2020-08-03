@@ -4,6 +4,7 @@ using Application.Photos;
 using Microsoft.Extensions.Options;
 using CloudinaryDotNet;
 using CloudinaryDotNet.Actions;
+using System;
 
 namespace Infrastructure.Photos
 {
@@ -35,6 +36,10 @@ namespace Infrastructure.Photos
                     };
                     uploadResult = _cloudinary.Upload(uploadParams);
                 }
+            }
+
+            if (uploadResult.Error != null) {
+                throw new Exception(uploadResult.Error.Message);
             }
 
             return new PhotoUploadResult
