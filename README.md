@@ -85,3 +85,10 @@
 # Section 15
 - adding attedances to client side
 - more Typescript interfaces
+
+#Section 16
+ - Photo storage option
+ - Adding photo accessor
+ - Uploading Photos
+ - set main photo
+ - deleting photos
