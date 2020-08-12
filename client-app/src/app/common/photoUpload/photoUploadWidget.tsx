@@ -3,9 +3,11 @@ import { Fragment, useState, useEffect } from 'react';
 import React from 'react';
 import { observer } from 'mobx-react-lite';
 import PhotoWidgetDropzone from './photoWidgetDropzone';
+import PhotoWidgetCropper from './photoWidgetCropper';
 
 const PhotoUploadWidget = () => {
   const [files, setFiles] = useState<any[]>([]);
+  const [image, setImage] = useState<Blob | null>(null);
 
   useEffect(() => {
     return () => {
@@ -24,6 +26,7 @@ const PhotoUploadWidget = () => {
         <Grid.Column width={1} />
         <Grid.Column widht={4}>
           <Header color="teal" sub content="Step 2 - Resize Photo" />
+          {files.length > 0 && <PhotoWidgetCropper setImage={setImage} imagePreview={files[0].preview} />}
         </Grid.Column>
         <Grid.Column width={1} />
         <Grid.Column widht={4}>
