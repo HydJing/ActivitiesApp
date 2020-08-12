@@ -1,11 +1,25 @@
 import React, { useCallback } from 'react';
 import { useDropzone } from 'react-dropzone';
+import { Icon, Header } from 'semantic-ui-react';
 
 interface IProps {
   setFiles: (files: object[]) => void;
 }
 
-const PhotoWidgetDropzone: React.FC<Iprops> = ({ setFiles }) => {
+const drozoneStyles = {
+  border: 'dashed 3px',
+  borderColor: '#eee',
+  borderRadius: '5px',
+  paddingTop: '30px',
+  textAlign: 'center' as 'center',
+  height: '200px',
+};
+
+const drozoneActive = {
+  borderColor: 'green',
+};
+
+const PhotoWidgetDropzone: React.FC<IProps> = ({ setFiles }) => {
   const onDrop = useCallback((acceptedFiles) => {
     setFiles(
       acceptedFiles.map((file: object) =>
@@ -19,13 +33,15 @@ const PhotoWidgetDropzone: React.FC<Iprops> = ({ setFiles }) => {
   const { getRootProps, getInputProps, isDragActive } = useDropzone({ onDrop });
 
   return (
-    <div {...getRootProps()}>
+    <div
+      {...getRootProps()}
+      style={
+        isDragActive ? { ...drozoneStyles, ...drozoneActive } : drozoneStyles
+      }
+    >
       <input {...getInputProps()} />
-      {isDragActive ? (
-        <p>Drop the file here...</p>
-      ) : (
-        <p>Drag 'n' drp some files here, or click to select files</p>
-      )}
+      <Icon name='upload' size='huge' />
+      <Header content='Drop image here' />
     </div>
   );
 };
