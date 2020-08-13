@@ -6,7 +6,7 @@ import PhotoUploadWidget from '../../app/common/photoUpload/photoUploadWidget';
 const ProfilePhotos = () => {
   const rootStore = useContext(RootStoreContext);
   const { profile, isCurrentUser } = rootStore.profileStore;
-  const [ addPhotoMode, setAddPhotoMode ] = useState(true);
+  const [addPhotoMode, setAddPhotoMode] = useState(true);
 
   return (
     <Tab.Pane>
@@ -28,7 +28,7 @@ const ProfilePhotos = () => {
           ) : (
             <Card.Group itemsPerRow={5}>
               {profile &&
-                profile.photos.map((photo) => {
+                profile.photos.map((photo) => (
                   <Card key={photo.id}>
                     <Image src={photo.url} />
                     {isCurrentUser && (
@@ -37,8 +37,8 @@ const ProfilePhotos = () => {
                         <Button basic megative content="Trash" />
                       </Button.Group>
                     )}
-                  </Card>;
-                })}
+                  </Card>
+                ))}
             </Card.Group>
           )}
         </Grid.Column>

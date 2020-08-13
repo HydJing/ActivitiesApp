@@ -7,7 +7,7 @@ interface IProps {
   imagePreview: string;
 }
 
-const photoWidgetCropper: React.FC<IProps> = ({ setImage, imagePreview }) => {
+const PhotoWidgetCropper: React.FC<IProps> = ({ setImage, imagePreview }) => {
   const cropper = useRef<Cropper>(null);
 
   const cropImage = () => {
@@ -32,7 +32,7 @@ const photoWidgetCropper: React.FC<IProps> = ({ setImage, imagePreview }) => {
       style={{ height: 200, width: '100%' }}
       // Cropper.js options
       aspectRatio={1 / 1}
-      preview='.image-preview'
+      preview='.img-preview'
       guides={false}
       viewMode={1}
       dragMode="move"
@@ -44,4 +44,4 @@ const photoWidgetCropper: React.FC<IProps> = ({ setImage, imagePreview }) => {
   );
 };
 
-export default photoWidgetCropper;
+export default PhotoWidgetCropper;
