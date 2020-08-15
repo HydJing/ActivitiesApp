@@ -9,5 +9,5 @@ export interface IProfile {
 export interface IPhoto {
     id: string,
     url: string,
-    isMain: string,
+    isMain: boolean,
 }
