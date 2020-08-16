@@ -1,4 +1,4 @@
-import { Grid, Header, Image, Button } from 'semantic-ui-react';
+import { Grid, Header, Button } from 'semantic-ui-react';
 import { Fragment, useState, useEffect } from 'react';
 import React from 'react';
 import { observer } from 'mobx-react-lite';
