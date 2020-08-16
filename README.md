@@ -92,3 +92,12 @@
  - Uploading Photos
  - set main photo
  - deleting photos
+
+ #Section 17
+ - adding a profile photo
+ - displaying user photos
+ - adding a photo upload widget
+ - React dropzone
+ - React Cropper
+ - Setting main photo
+ - delet photo
