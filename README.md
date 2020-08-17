@@ -101,3 +101,6 @@
  - React Cropper
  - Setting main photo
  - delet photo
+ 
+ #Section 18
+ - update profile bio and display name
