@@ -104,3 +104,10 @@
  
  #Section 18
  - update profile bio and display name
+
+ #Section 19
+ - know the SignalR
+ - ASPNET core SignalR
+ - @aspnet/signal for client side
+
+ 
