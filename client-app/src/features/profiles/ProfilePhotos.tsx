@@ -73,7 +73,7 @@ const ProfilePhotos = () => {
                             deletePhoto(photo);
                             setDeleteTarget(e.currentTarget.name);
                           }}
-                          loading={loading && deleteTarget == photo.id}
+                          loading={loading && deleteTarget === photo.id}
                           basic
                           negative
                           icon="trash"

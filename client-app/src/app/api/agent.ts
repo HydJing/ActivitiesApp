@@ -3,7 +3,6 @@ import { IActivity } from '../models/activity';
 import { history } from '../..';
 import { toast } from 'react-toastify';
 import { IUser, IUserFormValues } from '../models/user';
-import { request } from 'http';
 import { IProfile, IPhoto } from '../models/IProfile';
 
 axios.defaults.baseURL = 'http://localhost:5000/api';
@@ -74,7 +73,7 @@ const requests = {
 
 const Activities = {
   list: (): Promise<IActivity[]> => requests.get('/activities'),
-  details: (id: string) => requests.get(`/activity/${id}`),
+  details: (id: string) => requests.get(`/activities/${id}`),
   create: (activity: IActivity) => requests.post('/activities', activity),
   update: (activity: IActivity) =>
     requests.put(`/activities/${activity.id}`, activity),

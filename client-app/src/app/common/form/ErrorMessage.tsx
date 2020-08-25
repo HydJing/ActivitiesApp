@@ -1,4 +1,4 @@
-import React, { ReactElement } from 'react';
+import React from 'react';
 import { AxiosResponse } from 'axios';
 import { Message } from 'semantic-ui-react';
 

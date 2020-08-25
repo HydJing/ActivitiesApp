@@ -1,6 +1,5 @@
 import { IActivity, IAttendee } from '../../models/activity';
 import { IUser } from '../../models/user';
-import { displayName } from 'react-widgets/lib/SelectList';
 
 export const combineDateAndTime = (date: Date, time: Date) => {
   const timeString = time.getHours() + ':' + time.getMinutes() + ':00';

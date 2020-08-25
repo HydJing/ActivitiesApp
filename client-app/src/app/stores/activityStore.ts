@@ -73,12 +73,12 @@ export default class ActivityStore {
   };
 
   @computed get activitiesByDate() {
-    return this.grouActivitiesBydate(
+    return this.groupActivitiesBydate(
       Array.from(this.activityRegistry.values())
     );
   }
 
-  grouActivitiesBydate(activities: IActivity[]) {
+  groupActivitiesBydate(activities: IActivity[]) {
     const sortedActivities = activities.sort(
       (a, b) => a.date.getTime() - b.date.getTime()
     );
@@ -99,17 +99,16 @@ export default class ActivityStore {
     try {
       const activities = await agent.Activities.list();
       runInAction('loading activities', () => {
-        activities.map((activity) => {
+        activities.forEach((activity) => {
           setActivityProps(activity, this.rootStore.userStore.user!);
           this.activityRegistry.set(activity.id, activity);
         });
         this.loadingInitial = false;
       });
     } catch (error) {
-      runInAction('loading activities error', () => {
+      runInAction('load activities error', () => {
         this.loadingInitial = false;
       });
-      console.log(error);
     }
   };
 
@@ -133,7 +132,7 @@ export default class ActivityStore {
         runInAction('get activity error', () => {
           this.loadingInitial = false;
         });
-        toast.error('Problem sumbitting data');
+        toast.error('Problem loading activity');
         console.log(error);
       }
     }
@@ -167,7 +166,8 @@ export default class ActivityStore {
       runInAction('creating activity error', () => {
         this.submitting = false;
       });
-      console.log(error);
+      toast.error('Problem submitting data');	
+      console.log(error.response);
     }
   };
 
@@ -249,7 +249,7 @@ export default class ActivityStore {
       runInAction(() => {
         this.loading = false;
       });
-      toast.error('Problem signing up to activity');
+      toast.error('Problem cancelling attendance');
     }
   };
 }
