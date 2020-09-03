@@ -1,24 +1,28 @@
 import React from 'react';
-import { Tab} from 'semantic-ui-react';
+import { Tab } from 'semantic-ui-react';
 import ProfilePhotos from './ProfilePhotos';
 import ProfileDescription from './ProfileDescription';
+import ProfileFollowings from './ProfileFollowings';
 
 const panes = [
-    {menuItem: 'About', render: () => <ProfileDescription />},
-    {menuItem: 'Photos', render: () => <ProfilePhotos />},
-    {menuItem: 'Activities', render: () => <Tab.Pane>Activities Content</Tab.Pane>},
-    {menuItem: 'Follower', render: () => <Tab.Pane>Follower Content</Tab.Pane>},
-    {menuItem: 'Following', render: () => <Tab.Pane>Following Content</Tab.Pane>},
-]
+  { menuItem: 'About', render: () => <ProfileDescription /> },
+  { menuItem: 'Photos', render: () => <ProfilePhotos /> },
+  {
+    menuItem: 'Activities',
+    render: () => <Tab.Pane>Activities Content</Tab.Pane>,
+  },
+  { menuItem: 'Follower', render: () => <ProfileFollowings /> },
+  { menuItem: 'Following', render: () => <ProfileFollowings /> },
+];
 
 const ProfileContent = () => {
-    return (
-        <Tab 
-            menu={{fluid: true, vertical: true}}
-            menuPosition='right'
-            panes={panes}
-        />
-    )
-}
+  return (
+    <Tab
+      menu={{ fluid: true, vertical: true }}
+      menuPosition="right"
+      panes={panes}
+    />
+  );
+};
 
-export default ProfileContent
+export default ProfileContent;
