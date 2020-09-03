@@ -110,4 +110,6 @@
  - ASPNET core SignalR
  - @aspnet/signal for client side
 
- 
+  #Section 20
+ - implement the following and follower feature end to end
+ - selft referencing many to many relationship
