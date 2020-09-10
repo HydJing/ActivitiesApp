@@ -113,3 +113,9 @@
   #Section 20
  - implement the following and follower feature end to end
  - selft referencing many to many relationship
+
+   #Section 21
+ - Paging on the FE/client side
+ - Filtering on the FE/client side
+ - Sorting on the FE/client side
+ - update user profile page
