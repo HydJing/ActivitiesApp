@@ -119,3 +119,6 @@
  - Filtering on the FE/client side
  - Sorting on the FE/client side
  - update user profile page
+
+ #Section 22
+ - swapping DB, need remove existing migration folder and drop reactivities schema
