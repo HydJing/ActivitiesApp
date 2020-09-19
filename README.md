@@ -121,4 +121,5 @@
  - update user profile page
 
  #Section 22
- - swapping DB, need remove existing migration folder and drop reactivities schema
+ - swapping DB, need remove existing migration folder and drop activities schema
+ - publish the app halfway now

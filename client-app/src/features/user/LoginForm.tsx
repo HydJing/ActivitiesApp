@@ -34,7 +34,7 @@ const LoginForm = () => {
         dirtySinceLastSubmit,
       }) => (
         <Form onSubmit={handleSubmit} error>
-          <Header as="h2" content="Login to Reactivities" color="teal" textAlign='center' />
+          <Header as="h2" content="Login to Activities" color="teal" textAlign='center' />
           <Field name="email" component={TextInput} placeholder="Email" />
           <Field
             name="password"

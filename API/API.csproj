@@ -12,5 +12,6 @@
   <PropertyGroup>
     <TargetFramework>netcoreapp3.0</TargetFramework>
     <UserSecretsId>76cb5fa9-2736-408a-9b4e-62d76a6fef3f</UserSecretsId>
+    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
   </PropertyGroup>
 </Project>
