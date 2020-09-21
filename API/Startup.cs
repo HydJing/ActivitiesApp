@@ -61,7 +61,7 @@ namespace API
         }
         public void ConfigureServices(IServiceCollection services)
         {
-            
+
 
             services.AddCors(opt =>
             {
@@ -149,6 +149,20 @@ namespace API
             }
 
             // app.UseHttpsRedirection();
+
+            app.UseXContentTypeOptions();
+            app.UseReferrerPolicy(opt => opt.NoReferrer());
+            app.UseXXssProtection(opt => opt.EnabledWithBlockMode());
+            app.UseXfo(opt => opt.Deny());
+            app.UseCsp(opt => opt
+                .BlockAllMixedContent()
+                .StyleSources(s => s.Self().CustomSources("https://fonts.googleapi.com"))
+                .FontSources(s => s.Self().CustomSources("https://fonts.gstatic.com", "data:"))
+                .FormActions(s => s.Self())
+                .FrameAncestors(s => s.Self())
+                .ImageSources(s => s.Self().CustomSources("https://res.cloudinary.com", "blob:", "data:"))
+                .ScriptSources(s => s.Self())
+            );
 
             app.UseDefaultFiles();
             app.UseStaticFiles();
