@@ -122,4 +122,7 @@
 
  #Section 22
  - swapping DB, need remove existing migration folder and drop activities schema
- - publish the app halfway now
+ - publish the app to Digital Ocean and Azure
+ - imporve the app
+ - bonus content about header more safe
+ - practive building your own app
