@@ -92,6 +92,7 @@ const User = {
     requests.post('/user/login', user),
   register: (user: IUserFormValues): Promise<IUser> =>
     requests.post('/user/register', user),
+    refreshToken: (): Promise<IUser> => requests.post(`/user/refreshtoken`, {})
 };
 
 const Profiles = {
