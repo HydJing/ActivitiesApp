@@ -47,6 +47,19 @@ namespace API.Controllers
             return user;
         }
 
+        [AllowAnonymous]
+        [HttpPost]
+        public async Task<ActionResult> VerifyEmail(ConfirmEmail.Command command)
+        {
+            var result = await Mediator.Send(command);
+            if (!result.Succeeded)
+            {
+                return BadRequest("Problem verifing email address");
+            }
+
+            return Ok("Email confirmed - You can login now");
+        }
+
         private void SetTokenCookie(string refreshToken)
         {
             var cookieOptions = new CookieOptions
