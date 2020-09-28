@@ -21,11 +21,13 @@ namespace API.Controllers
 
         [AllowAnonymous]
         [HttpPost("register")]
-        public async Task<ActionResult<User>> Register(Register.Command command)
+        public async Task<ActionResult> Register(Register.Command command)
         {
+            command.Origin = Request.Headers["origin"];
+
             var user = await Mediator.Send(command);
-            SetTokenCookie(user.RefreshToken);
-            return user;
+
+            return Ok("registration successful and please verify your email");
         }
 
         [HttpGet]
