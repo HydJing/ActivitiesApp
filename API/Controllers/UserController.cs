@@ -48,7 +48,7 @@ namespace API.Controllers
         }
 
         [AllowAnonymous]
-        [HttpPost]
+        [HttpPost("verifyEmail")]
         public async Task<ActionResult> VerifyEmail(ConfirmEmail.Command command)
         {
             var result = await Mediator.Send(command);
@@ -58,6 +58,16 @@ namespace API.Controllers
             }
 
             return Ok("Email confirmed - You can login now");
+        }
+
+        [AllowAnonymous]
+        [HttpPost("resendEmailVerification")]
+        public async Task<ActionResult> ResendEmailVerification([FromQuery]ResendEmailVerification.Query query)
+        {
+            query.Origin = Request.Headers["origin"];
+            await Mediator.Send(query);
+
+            return Ok("Email verification link sent - please check email");
         }
 
         private void SetTokenCookie(string refreshToken)
