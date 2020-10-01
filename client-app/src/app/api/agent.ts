@@ -4,6 +4,7 @@ import { history } from '../..';
 import { toast } from 'react-toastify';
 import { IUser, IUserFormValues } from '../models/user';
 import { IProfile, IPhoto } from '../models/IProfile';
+import { request } from 'http';
 
 axios.defaults.baseURL = process.env.REACT_APP_API_URL;
 
@@ -92,7 +93,9 @@ const User = {
     requests.post('/user/login', user),
   register: (user: IUserFormValues): Promise<IUser> =>
     requests.post('/user/register', user),
-    refreshToken: (): Promise<IUser> => requests.post(`/user/refreshtoken`, {})
+  refreshToken: (): Promise<IUser> => requests.post(`/user/refreshtoken`, {}),
+  verifyEmail: (token: string, email: string) : Promise<void> => requests.post(`/user/verifyEmail`, {token, email}),
+    resendVerifyEmailConfirm: (email: string) : Promise<void> => requests.get(`/user/resendEmailVerification?email=${email}`)  
 };
 
 const Profiles = {
