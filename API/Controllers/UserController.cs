@@ -25,7 +25,7 @@ namespace API.Controllers
         {
             command.Origin = Request.Headers["origin"];
 
-            var user = await Mediator.Send(command);
+            await Mediator.Send(command);
 
             return Ok("registration successful and please verify your email");
         }
