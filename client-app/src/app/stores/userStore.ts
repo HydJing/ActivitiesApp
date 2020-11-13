@@ -14,6 +14,7 @@ export default class UserStore {
   }
 
   @observable user: IUser | null = null;
+  @observable loading = false;
 
   @computed get isLoggedIn() {
     return !!this.user;

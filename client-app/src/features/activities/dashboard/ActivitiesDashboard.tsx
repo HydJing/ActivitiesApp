@@ -7,7 +7,7 @@ import InfiniteScroll from 'react-infinite-scroller';
 import ActivityFilters from './ActivityFilters';
 import ActivityListItemPlaceholder from './ActivityListItemPlaceholder';
 
-const ActivitiesDashboard: React.FC = ({}) => {
+const ActivitiesDashboard: React.FC = () => {
   const rootStore = useContext(RootStoreContext);
   const {
     loadActivities,

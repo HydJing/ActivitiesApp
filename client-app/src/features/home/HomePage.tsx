@@ -33,7 +33,7 @@ const HomePage = () => {
         ) : (
           <Fragment>
             <Header as="h2" inverted content="Welcome to Activities" />
-            <Button onClick={() => openModal(<LoginForm />)} to="/login" size="huge" inverted>
+            <Button onClick={() => openModal(<LoginForm />)} size="huge" inverted>
               Login
             </Button>
             <Button onClick={() => openModal(<RegisterForm />)} size="huge" inverted>

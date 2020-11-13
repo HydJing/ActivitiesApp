@@ -1,5 +1,5 @@
 import { RootStore } from './rootStore';
-import { observable, action, reaction } from 'mobx';
+import { observable, action, reaction, makeObservable } from 'mobx';
 
 export class CommonStore {
   rootStore: RootStore;
@@ -17,6 +17,8 @@ export class CommonStore {
         }
       }
     );
+
+    makeObservable(this);
   }
 
   @observable token: string | null = window.localStorage.getItem('jwt');

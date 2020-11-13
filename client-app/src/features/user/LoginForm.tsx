@@ -7,6 +7,7 @@ import { IUserFormValues } from '../../app/models/user';
 import { FORM_ERROR } from 'final-form';
 import { combineValidators, isRequired } from 'revalidate';
 import ErrorMessage from '../../app/common/form/ErrorMessage';
+import { observer } from 'mobx-react-lite';
 
 const validate = combineValidators({
   email: isRequired('Email'),
@@ -33,7 +34,7 @@ const LoginForm = () => {
         pristine,
         dirtySinceLastSubmit,
       }) => (
-        <Form onSubmit={handleSubmit} error>
+        <Form onSubmit={handleSubmit} error autoComplete='off'>
           <Header as="h2" content="Login to Activities" color="teal" textAlign='center' />
           <Field name="email" component={TextInput} placeholder="Email" />
           <Field
@@ -62,4 +63,4 @@ const LoginForm = () => {
   );
 };
 
-export default LoginForm;
+export default observer(LoginForm);

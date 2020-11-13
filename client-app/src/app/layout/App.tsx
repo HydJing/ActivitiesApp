@@ -20,7 +20,7 @@ import ModalContainer from '../common/modal/ModalContainer';
 import ProfilePage from '../../features/profiles/ProfilePage';
 import PrivateRoute from './PrivateRoute';
 import VerifyEmail from '../../features/user/VerifyEmail';
-import RegisterSuccess from '../../features/user/registerSuccess';
+import RegisterSuccess from '../../features/user/RegisterSuccess';
 
 const App: React.FC<RouteComponentProps> = ({ location }) => {
   const rootStore = useContext(RootStoreContext);

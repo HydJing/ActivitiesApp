@@ -143,7 +143,7 @@ export default class ActivityStore {
       const activitiesEnvelope = await agent.Activities.list(this.axiosParams);
       const { activities, activityCount } = activitiesEnvelope;
 
-      runInAction('loading activities', () => {
+      runInAction(() => {
         activities.forEach((activity) => {
           setActivityProps(activity, this.rootStore.userStore.user!);
           this.activityRegistry.set(activity.id, activity);
@@ -152,7 +152,7 @@ export default class ActivityStore {
         this.loadingInitial = false;
       });
     } catch (error) {
-      runInAction('load activities error', () => {
+      runInAction(() => {
         this.loadingInitial = false;
       });
     }
@@ -167,7 +167,7 @@ export default class ActivityStore {
       this.loadingInitial = true;
       try {
         activity = await agent.Activities.details(id);
-        runInAction('getting activity', () => {
+        runInAction(() => {
           setActivityProps(activity, this.rootStore.userStore.user!);
           this.activity = activity;
           this.activityRegistry.set(activity.id, activity);
@@ -175,7 +175,7 @@ export default class ActivityStore {
         });
         return activity;
       } catch (error) {
-        runInAction('get activity error', () => {
+        runInAction(() => {
           this.loadingInitial = false;
         });
         toast.error('Problem loading activity');
@@ -203,13 +203,13 @@ export default class ActivityStore {
       activity.attendees = attendees;
       activity.comments = [];
       activity.isHost = true;
-      runInAction('creating activity', () => {
+      runInAction(() => {
         this.activityRegistry.set(activity.id, activity);
         this.submitting = false;
       });
       history.push(`/activities/${activity.id}`);
     } catch (error) {
-      runInAction('creating activity error', () => {
+      runInAction(() => {
         this.submitting = false;
       });
       toast.error('Problem submitting data');
@@ -221,13 +221,13 @@ export default class ActivityStore {
     this.submitting = true;
     try {
       await agent.Activities.update(activity);
-      runInAction('editing activity', () => {
+      runInAction(() => {
         this.activityRegistry.set(activity.id, activity);
         this.activity = activity;
         this.submitting = false;
       });
     } catch (error) {
-      runInAction('editing activity error', () => {
+      runInAction( () => {
         this.submitting = false;
       });
       console.log(error);
@@ -242,13 +242,13 @@ export default class ActivityStore {
     this.target = event.currentTarget.name;
     try {
       await agent.Activities.delete(id);
-      runInAction('deleting activity', () => {
+      runInAction(() => {
         this.activityRegistry.delete(id);
         this.submitting = false;
         this.target = '';
       });
     } catch (error) {
-      runInAction('deleting activity error', () => {
+      runInAction(() => {
         this.submitting = false;
         this.target = '';
       });
