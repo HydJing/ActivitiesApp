@@ -55,7 +55,7 @@ namespace API
             services.AddDbContext<DataContext>(opt =>
             {
                 opt.UseLazyLoadingProxies();
-                opt.UseSqlite(Configuration.GetConnectionString("DefaultConnection"));
+                opt.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"));
             });
 
             ConfigureServices(services);
@@ -152,6 +152,10 @@ namespace API
             if (env.IsDevelopment())
             {
                 // app.UseDeveloperExceptionPage();
+            }
+            else {
+                // the default HSTS is 30 day, you might change this for production sen
+                app.UseHsts();
             }
 
             // app.UseHttpsRedirection();
